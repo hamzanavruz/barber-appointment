@@ -5,7 +5,7 @@
   <div class="bg-slate-800 h-full p-8 pt-2 md:p-0  md:h-screen" :class="{ 'h-screen': showContainer == 'detail' }">
     <div class="flex justify-center">
       <img src="../assets/logo.png" class="mt-5 w-2/3 md:w-1/4">
-    </div>
+    </div>Name Surname
     <div class="justify-center items-center content-center bg-slate-800 mt-8" v-show="showContainer == 'list'">
       <ul class="grid grid-cols-3 md:grid-cols-6 gap-4 mb-20 md:mb-0 ">
         <li class="rounded-lg shadow-lg p-5 md:p-8 cursor text-center"
@@ -26,11 +26,11 @@
           <h6 class="font-bold mb-2">{{ selectedHour.hour }}</h6>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-              İsim Soyisim
+              Name Surname
             </label>
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username" type="text" placeholder="İsim Soyisim" ref="newName">
+              id="username" type="text" placeholder="Name Surname" ref="newName">
           </div>
 
           <div class="">
@@ -38,12 +38,12 @@
             <button
               class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-3 rounded focus:outline-none focus:shadow-outline w-full"
               type="button" @click="addHour">
-              Kaydet
+              Save
             </button>
             <button
               class="bg-red-500 hover:bg-red-700 text-white  py-2 px-3 rounded focus:outline-none focus:shadow-outline w-full mt-3"
               type="button" @click="(() => { showContainer = 'list' })">
-              Kapat
+              Close
             </button>
           </div>
         </div>
@@ -55,28 +55,28 @@
           <h6 class="font-bold mb-2">{{ selectedHour.hour }}</h6>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-              İsim Soyisim
+              Name Surname
             </label>
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username" type="text" placeholder="İsim Soyisim" :value="selectedHour.name" ref="name">
+              id="username" type="text" placeholder="Name Surname" :value="selectedHour.name" ref="name">
           </div>
 
           <div class="">
             <button
               class="bg-blue-500 hover:bg-blue-500 text-white  py-2 px-3 rounded focus:outline-none focus:shadow-outline w-full"
               type="button" @click="updateHour">
-              Kaydet
+              Save
             </button>
             <button
               class="bg-yellow-500 hover:bg-yellow-500 text-white  py-2 px-3 rounded focus:outline-none focus:shadow-outline w-full mt-3"
               type="button" @click="cancelHour">
-              Randevuyu İptal Et
+              Cancel Appointment
             </button>
             <button
               class="bg-red-500 hover:bg-red-500 text-white  py-2 px-3 rounded focus:outline-none focus:shadow-outline w-full mt-3"
               type="button" @click="(() => { showContainer = 'list' })">
-              Kapat
+              Close
             </button>
           </div>
         </div>
@@ -162,11 +162,11 @@ export default {
     cancelHour() {
 
       Swal.fire({
-        title: 'Silmek istediğine emin misin?',
+        title: 'Are you sure you want to delete?',
         icon: 'question',
         showCancelButton: true,
-        cancelButtonText: 'İptal Et',
-        confirmButtonText: 'Evet',
+        cancelButtonText: 'Cancel',
+        confirmButtonText: 'Confirm',
 
       }).then((result) => {
 
@@ -196,11 +196,11 @@ export default {
     },
     resetDay() {
       Swal.fire({
-        title: 'Tüm randevuları silmek istediğine emin misin?',
+        title: 'Are you sure you want to delete all appointments?',
         icon: 'question',
         showCancelButton: true,
-        cancelButtonText: 'İptal Et',
-        confirmButtonText: 'Evet',
+        cancelButtonText: 'Cancel',
+        confirmButtonText: 'Confirm',
 
       }).then((result) => {
         localStorage.removeItem("date");
